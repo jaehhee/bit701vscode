@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+
+    <style>
+        #imgs{
+            width: 200px;
+        }
+
+
+    </style>
+    
+    <script>
+        //head 안에서 이벤트함수를 만들경우 반드시 onload 함수 안에서 구현한다
+        window.onload=function(){
+            var imgs=document.getElementById("imgs");
+
+            document.getElementById(imgs).onchange=function(){
+                
+
+            }
+        }
+
+            </script>
+
+</head>
+
+<body>
+
+<br>이미지 변경<br>
+<select id="imgs">
+    <option value="../image/animal/C1">이미지1</option>
+    <option value="../image/animal/C2">이미지2</option>
+    <option value="../image/animal/C3">이미지3</option>
+    <option value="../image/animal/C4">이미지4</option>
+    <option value="../image/animal/C5">이미지5</option>
+
+    </select>
+
+    
+</body>
+</html>

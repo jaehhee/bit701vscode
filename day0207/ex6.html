@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <style>
+        body, body *{
+            font-size: 1.5rem;
+            font-family: 'Single Day';
+        }
+        </style>
+
+        
+</head>
+<body>
+
+
+    이름
+    <input type="text" id="irum" style="width: 100px;">
+    <br><br>
+    자바
+    <input type="text" id="java" style="width: 100px;">
+    <br><br>
+    HTML
+    <input type="text" id="html" style="width: 100px;">
+    <br><br>
+    <button type="button" id="btn">결과 확인</button>
+    <div id="result">
+    </div>
+
+    <script>
+        var irum=document.getElementById("irum");
+        var java=document.getElementById("java");
+        var html=document.getElementById("html");
+
+        java.onblur=function(){
+            console.log(isNaN(this.value));
+            if(isNaN(this.value)||this.value>100||this.value<0)
+            {
+                alert("다시 입력해주세요");
+                this.value="";
+                this.focus();
+            }
+        }
+        html.onblur=function(){
+            console.log(isNaN(this.value));
+            if(isNaN(this.value)||this.value>100||this.value<0)
+            {
+                alert("다시 입력해주세요");
+                this.value="";
+                this.focus();
+            }
+        }
+        
+        document.getElementById("btn").onclick=function(){
+            var n=irum.value;
+            var s=Number(java.value)+Number(html.value);
+            var a=s/2;
+            document.getElementById("result").innerHTML=`이름 : ${n} 총점: ${s} 평균: ${a}`
+        }
+        
+    </script>
+</body>
+</html>
