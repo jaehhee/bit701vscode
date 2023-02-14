@@ -1,0 +1,14 @@
+** 엘리먼트(요소) 값 얻기
+1. var a = getElementByid("아이디") : a는 특정 아이디에 대한 단일요소값
+2. var b = getElementsByClassName("happy") : b는 클래스명이 happy인 요소들의 배열값
+3. var c = getElementsByTagName("happy") : c는 태그명이 div인 요소들의 배열값
+4. var d = querySelector("selector") : d는 selector에 해당하는 요소들중 첫번째 요소값
+    selector란 : "#nice" : 아이디 nice를 의미
+                 ".nice" : 클래스 nice를 의미
+                 "b" : 클래스명이 nice 인태그의 모든 하위 b태그들
+                 ".nice b: 클래스명이 nice 인태그의 모든 하위 b태그
+5. var e = querySelectAll("selector") : e는 selector에 해당하는 모든 요소들(배열)
+6. var f = parentElement() : 부모태그 요소값
+7. previousElementSibling() : 바로 앞 요소값
+8. nextElementSibling() : 바로 다음 요소값
+
