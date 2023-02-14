@@ -14,7 +14,7 @@
 
         div.title{
             font-size: 30px;
-            margin: 30px 30px;
+            margin: 30px 100px;
 
         }
         /* 한칸 띄어야 하위태그 */
@@ -27,33 +27,101 @@
             font-size: 22px;
         }
 
-        div.box{
-            display: flex;
-        }
         
-
         body{
             background-color: #add8e6;
         }
-        
+
         div.box{
+            display: flex;
             width: 630px;
             height: 120px;
             background-color: white;
             margin-left: 20px;
             margin-top: 20px;
             border-radius: 100px;
+            /* justify-content: center; flex일 경우 수평방향 가운데 flex-start, center, space-between */
+            justify-content: space-around; /*아이템의 "둘레(around)"에 균일한 간격을 만들어*/
+            align-items: center; /* flex일 경우 수직방향 가운데*/
         }
 
+        div.box div.lotto{
+            font-size: 45px;
+            width: 80px;
+            height: 80px;
+            text-align: center;
+            line-height: 80px;
+            background-color: #ffb6c1;
+            border-radius: 100px;
+        }
+
+        #btnlotto{
+            width: 200px;
+            height: 60px;
+            margin: 30px 200px;
+            font-size: 23px;
+            cursor: pointer;
+        }
+
+        #btnlotto:hover{
+            background-color: black;
+            color: white;
+            box-shadow: 5px 5px 5px gray;
+        }
+        
+
+
      </style>
+
+     <script>
+        window.onload=function(){
+            // 현재 날짜 구하기
+            let today=new Date();
+            let year=today.getFullYear();
+            let month=today.getMonth()+1;
+            let day=today.getDate();
+
+            document.querySelector("b.day").innerHTML=`${year}-${month}-${day}`;
+
+            var lotto=document.querySelectorAll("div.box>div.lotto");
+            lotto[1].style.backgroundColor="#afeeee";
+            lotto[3].style.backgroundColor="#008080";
+
+            lotto[1].style.color="#6a5acd";
+            lotto[3].style.color="#ffd700";
+
+            // 버튼 이벤트
+            document.getElementById("btnlotto").onclick=function(){
+                let nums=new Array(6);
+                // 1~45 사이의 난수값을 6개 구한다
+                for(let i=0;i<nums.length;i++){
+                    nums[i]=parseInt(Math.random()*45)+1; //1~45;
+                    // 중복체크해서 같을 경우 다시 구한다
+
+                    for(let j=0; j<i; j++){
+                     if(nums[i]==nums[j]){
+                        i--; 
+                        break;
+                     
+                        }
+                     }
+                }
+
+                // div.lotto에 위에서 구한 숫자를 넣어준다
+                for(let idx in lotto){
+                    lotto[idx].innerHTML=nums[idx]
+                    }
+                }
+        }
+     </script>
 
 </head>
 
 <body>
-    <div class="title"><b class="day">1025</b> 회
+    <div class="title"><b class="num">1025</b> 회
         <b class="day">0000-00-00</b></div>
 
-        <div clas="box">
+        <div class="box">
             <div class="lotto">1</div>
             <div class="lotto">1</div>
             <div class="lotto">1</div>
