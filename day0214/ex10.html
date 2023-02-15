@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+        
+    <style>
+        body, body *{
+            font-family: 'Single Day';
+
+        }
+
+        .result{
+            text-align: center;
+            width: 500px;
+            height: 200px;
+        }
+    </style>
+
+    <script>
+     window.onload=function(){
+
+        // 1번 이벤트 : 입력 후 엔터
+         document.getElementById("txtin").onkeyup=function(e){
+            if(e.keyCode==13){
+                let v = this.value;
+                document.querySelector(".result").innerText=v;
+                }
+
+            }
+
+        // 1번 이벤트 : 테두리
+             document.querySelector("#chkborder").onclick=function(){
+        
+                if(this.checked){
+                document.querySelector(".result").style.border="5px solid gray";}
+                else{
+                document.querySelector(".result").style.border="";}
+
+                }  
+
+        
+        // 2번 이벤트 : 글자크기
+
+
+            let tsize=document.querySelectorAll(".fontsize");
+            for(let i=0;i<tsize.length;i++){
+                // 클릭이벤트
+                tsize[i].onclick=function(){
+                    document.querySelector(".result").style.fontSize=this.value;
+                }
+            }
+
+        // 3번 이벤트 : 글자색
+
+                document.getElementById("txtcolor").onchange=function(){
+                // 선택한 색상값을 .three에 출력후 배경색에도 적용하기
+                document.querySelector(".result").style.color=this.value;
+
+            }
+
+        // 3번 이벤트 : 배경색
+
+                document.getElementById("txtbgcolor").onchange=function(){
+                // 선택한 색상값을 .three에 출력후 배경색에도 적용하기
+                document.querySelector(".result").style.backgroundColor=this.value;
+
+            }
+
+        // 4번 이벤트 : 글꼴선택
+
+            let tstyle=document.querySelectorAll(".fontstyle");
+            for(let i=0;i<tstyle.length;i++){
+                // 클릭이벤트
+                tstyle[i].onclick=function(){
+                    document.querySelector(".result").style.fontFamily=this.value;
+                }
+            }
+
+            
+
+        }
+
+
+    </script>
+
+</head>
+<body>
+
+    <br>
+    <table>
+        <tr>
+            <td> <b>입력후 엔터를 누르세요 : </b>
+             <input type="text" id="txtin">
+             <label><input type="checkbox" id="chkborder">테두리</label>
+            </td>
+        </tr>
+
+        <tr>
+            <td> <b>글자크기 : </b>
+            <label><input type="radio" class="fontsize" value="10px" name="size">10px</label>
+            <label><input type="radio" class="fontsize" value="20px" name="size">20px</label>
+            <label><input type="radio" class="fontsize" value="30px" name="size">30px</label>
+            <label><input type="radio" class="fontsize" value="35px" name="size">35px</label>
+            </td>
+
+        </tr>
+
+        <tr>
+            <td><b>글자색 : </b>
+            <input type="color" id="txtcolor" value="#cfcfcf">
+            <b>배경색 : </b>
+            <input type="color" id="txtbgcolor" value="#afeeee">
+            </td>
+        </tr>
+
+        <tr>
+
+        <td> <b>글꼴선택 : </b>
+            <label><input type="radio" class="fontstyle" value="Jua" name="font">Jua</label>
+            <label><input type="radio" class="fontstyle" value="Nanum Pen Script" name="font">Nanum</label>
+            <label><input type="radio" class="fontstyle" value="Single Day" name="font">Single</label>
+            <label><input type="radio" class="fontstyle" value="Gamja Flower" name="font">Gamja</label>
+            </td>
+        </tr>
+    </table>
+
+    <br><br><br>
+    <table>
+        <tr>
+            <td class="result"></td>
+        </tr>
+    </table>
+
+</body>
+</html>
