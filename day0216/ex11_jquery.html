@@ -16,21 +16,21 @@
             // 문제
             // 1. header중 class가 happy인 요소의 글자색과 배경색을 변경
 
-            $(".happy").css({
-                "color":"blue",
+            $("header.happy").css({
+                "color":"green",
                 "background-color":"#ccf",
             });
 
             // 2. section중 class가 one인 요소중 첫번째 요소의 border와 글꼴 변경
 
-            $(".one").eq(0).css({
+            $("section.one").eq(0).css({
                 "border":"5px solid gray",
-                "font-fmaily":"Gamja Flower"
+                "font-family":"Gamja Flower"
             });
 
             // 3. section중 class가 one인 요소중 두번째 요소의 img src 변경
 
-            $(".one img").eq(1).attr({
+            $("section.one img").eq(1).attr({
                 "src":"../image/jquery_image/11.png",
             });
 
@@ -39,33 +39,28 @@
             // 이미지의 src에다 넣어주세요
             let photo=$("img").eq(0).attr("src");
             $("#photo").attr("src",photo);
-  
-
-
-
 
 
             // 5. ul 아래의 모든 li의 글꼴,글자색 변경
 
 
-            $("ul>li").css({
+            $("ul li").css({
                 "color":"purple",
-                "font-fmaily":"Jua"
+                "font-family":"Nanum Pen Script"
             });
 
 
-
-            // 6. 두번재 ul의 li에 마우스를 올리면 글자색이 빨강으로
+            // 6. ul의 li에 마우스를 올리면 글자색이 빨강으로
             // 벗어나면 다시 검정으로 변경
             // 마우스가 올라가 있는 해당 요소만 변경을 해야한다
 
 
-            $("ul>li").eq(1).mouseover(function(){               
-                $(this).css({"color":"red"});
+            $("ul li").mouseover(function(){               
+                $(this).css("color","red").css("width","130px");
             });
 
-            $("ul>li").eq(1).mouseout(function(){               
-                $(this).css({"color":"black"});
+            $("ul li").mouseout(function(){               
+                $(this).css("color","purple").css("width","130px");
             });
 
 
@@ -74,15 +69,12 @@
 
             // 7. section 태그 아래의 h3의 border, 글자색, 글꼴 변경 
 
-            $("h3").eq(2).css({
-                "color":"blue",
-                "background-color":"lightpink",
-                "border":"6px dotted yellow"
+            $("section h3").css({
+                "color":"#4682b4",
+                "border":"6px groove lightpink",
+                "font-family":"Jua"
+
             });
-
-
-
-
          
         })
     </script>
