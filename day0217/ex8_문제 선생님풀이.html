@@ -14,37 +14,28 @@
        body, body *{
             font-family: 'Single Day';
         }
+
+        table tr{
+            height:100px;
+            line-height:100px;
+            font-size:30px
+        }
+
     </style>
 
 <script>
     $(function(){
 
-                $("td").mouseover(function(){
-                let r=$(this).attr("r");
-                let g=$(this).attr("g");
-                let b=$(this).attr("b");
-                let fcolor=$(this).css("color");
-
-                $("h1").css({
-                    "background-color":fcolor,
-                });
+         $("td").mouseover(function(){
 
 
-                let s=
-                
-               `R: ${r}, G: ${g} B: ${b}`;
-
-                $("h1").html(s);
-
+        let fontcolor=$(this).css("color");
+        $("h1").text(fontcolor);
+        $("h1").css("background-color",fontcolor)
 
 
             });
 
-            $("td").css({
-                "font-size":"30px",
-                "text-align":"center",
-
-            });
 
         });
 
@@ -66,7 +57,7 @@
 
      -->
 
-     <h1></h1>
+     <h1>여기에 글자를 출력하세요</h1>
      <table class="table table-bordered" style="width:320px;">
         <script>
 
@@ -83,21 +74,24 @@
             }
          }
 
+            let idx=0
             for(let row=1;row<=5;row++){
                 
                 document.write("<tr>");
 
                     for(let col=1;col<=5;col++){
-                     let idx = (row - 1) * 5 + col - 1; 
-                                              
-                     // rgb 값을 랜덤하게 얻는다
+              
+
                         let r=parseInt(Math.random()*256);
                         let g=parseInt(Math.random()*256);
                         let b=parseInt(Math.random()*256);
                
-                        document.write(`<td style="color:rgb(${r},${g},${b})" r="${r}" g="${g}" b="${b}">`);                  
-                        document.write(`${no[idx]}`);
-                        document.write("</td>");
+                        // document.write("<td align=center style='color:rgb ("+r+","+g+","+b+")'>"
+                        //     +no[idx++]+"</td>");    
+
+                        document.write(`<td align=center style="color:rgb(${r},${g},${b})">
+                            ${no[idx++]}</td>`);
+
                     }
 
                 document.write("</tr>");
