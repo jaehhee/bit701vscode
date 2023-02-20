@@ -68,9 +68,23 @@
             $("div.two").append(`<img src=${item} class="photo">`);
 
         });
+    </script>
 
+    <hr>
 
+    <div class="three"></div>
+    <script>
+        // 배열에 json 형태의 데이타 넣기
+        // 키 같으로 가져온다 앞에 키값 뒤에 벨류
+        let array3=[
+            {"message":"Hello", "color":"red"},
+            {"message":"안녕하세요", "color":"green"},
+            {"message":"반가워요", "color":"pink"}
+        ];
 
+        $.each(array3,function(idx,item){
+            $("div.three").append("<h3 style='color:"+item.color+"'>" +item.message+"</h3>");
+        });
     </script>
     
 </body>
