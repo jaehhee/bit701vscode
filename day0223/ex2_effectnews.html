@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+​
+
+
+    <style>
+       body, body *{
+            font-family: 'Single Day';
+        }
+    </style>
+
+    <script>
+        $(function(){
+            $(".title>b").css({
+                "cursor":"pointer",
+                "font-size":"20px"
+            });
+
+            // 내용안 일단 안보이게 처리
+            $("div.content").hide();
+
+            // 제목을 클릭하면 그 아래의 기사 내용이 나오도록 하는데
+            // effect 효과를 적용해보자
+            $(".title>b").click(function(){
+                $(this).next().slideDown('slow');
+                $(this).parent().siblings().find("div.content").slideUp('slow');
+            })
+
+
+
+        });
+    </script>
+
+
+</head>
+<body>
+    <div class="title alert alert-info">
+        <b>기준금리 18개월 만에 동결 연 3.5%…올 성장률 1.6%로 하향 조정</b>
+        <div class="content">
+            <pre>
+                한국은행 금융통화위원회는 오늘(23일) 연 3.50%인 기준금리를 인상 없이 동결했습니다.
+                기준금리 동결은 지난해 2월 이후 처음입니다. 지난해 4월부터 7차례 이어진 인상도 멈추게 됐습니다.
+                경기 상황이 좋지 않은 점을 고려해 이러한 결정을 내린 것으로 보입니다.
+                이와 함께 한은은 올해 실질 국내총생산(GDP) 성장률을 1.6%로 전망했습니다. 
+                지난해 11월 전망치(1.7%)에서 0.1%포인트 하향 조정됐습니다.
+                소비자물가 상승률도 기존 전망치(3.6%)에서 0.1%포인트 하향 조정한 3.5%로 내려 잡았습니다.
+
+            </pre>
+        </div>
+    </div>
+
+    <div class="title alert alert-danger">
+        <b>전세사기·건폭과의 전쟁…경찰 19명 특진</b>
+        <div class="content">
+            <pre>
+                23일 국회 행정안전위원회 소속 국민의힘 정우택 의원(국회 부의장)이 
+                경찰청에서 받은 특진 자료에 따르면 올해 1~2월에만 경찰 특진자는 총 19명이었다.
+                모두 전세사기와 건설현장 불법행위 수사에서 공로를 세운 이들이었다. 
+                전세사기 단속 성과로 13명이 특진했고, 건설현장 불법행위 수사 공로로 6명이 진급했다.
+                이처럼 올해 두 달간 전세사기·건설현장 불법행위 수사로 특진한 경찰은 지난해 8명 대비 두 배 이상 많았다.
+            </pre>
+        </div>
+    </div>
+
+    <div class="title alert alert-success">
+        <b>[날씨] 아침 쌀쌀, 한낮 온화...중서부 초미세먼지 주의</b>
+        <div class="content">
+            <pre>
+                오늘 아침도 제법 쌀쌀했지만, 어제보다는 추위가 확연히 덜했습니다.
+                기온도 예년 수준을 회복하며 겨울 추위가 물러난 느낌인데요.
+                오늘 서울의 한낮 기온은 영상 8도로 어제만큼 온화한 날씨를 보이겠습니다.
+                다만, 낮 기온이 오르는 만큼 일교차도 10도 안팎으로 크게 벌어지니까요, 
+                환절기 옷차림에 유의하셔야겠습니다.
+            </pre>
+        </div>
+    </div>
+    
+</body>
+</html>
