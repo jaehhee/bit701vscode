@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Single+Day&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+    ​ <style>
+        body,
+        body * {
+            font-family: 'Single Day';
+        }
+
+        div.mytooltip{
+            position: absolute;
+            line-height: 1.5;
+            color: black;
+            width: 200px;
+            background-color: #f90;
+            border: 2px solid white;
+            padding: 10px;
+            font-size: 14px;
+            border-radius: 30px;
+            position: absolute;
+            opacity: 0.8;
+            display: none;
+        }
+
+        .view{
+            cursor: pointer;
+            background-color: #ccc;
+        }
+
+        ol.taday li{
+            cursor: pointer;
+            font-size: 22px;
+
+        }
+
+        ol.today li{
+            cursor: pointer;
+            font-size: 22px;
+            width: 200px;
+        }
+
+        ol.today li:hover{
+            background-color: rgba(0,0,0,0.3);
+        }
+
+    </style>
+
+    <script>
+        $(function(){
+            $("a").bind({
+                mousemove:function(e){
+                    console.log(e.pageX,e.pageY);
+                    $("div.mytooltip").css({
+                        "left":e.pageX+"px",
+                        "top":e.pageY+"px"
+                    });
+                },
+
+                mouseover:function(){
+                    $("div.mytooltip").fadeIn('fast');
+                    $("div.mytooltop").html(`
+                    Java<br>
+                    HTML5<br>
+                    CSS<br>
+                    Mysql`).css("background-color","#f90");
+                },
+
+                mouseout:function(){
+                    $("div.mytooltip").fadeOut('fast');
+                }
+
+            });
+
+            $("b.view").bind({
+                mouseover:function(){
+                    // 태그에 있는 색상얻기
+                    let color=$(this).attr("color");
+                    let text=$(this).text();
+                    $("div.mytooltip").css("background-color",color).html(text);
+                    $("div.mytooltip").fadeIn();
+                },
+
+                mouseout:function(){
+                    $("div.mytooltip").fadeOut();
+                },
+
+                mousemove:function(e){
+                    $("div.mytooltip").css({
+                        left:e.pageX+"px",
+                        top:e.pageY+"px"
+                    });
+                }
+            });
+
+            $("ol.today li").bind({
+
+
+                mouseenter:function(){
+                    let txt=$(this).text();
+                    let photo=$(this).attr("photo");
+                    $("div.mytooltip").html(`
+                        <b>${txt}</b><br>
+                        <img src=${photo} width=100>
+                    `);
+
+                    $("div.mytooltip").show();
+
+                },
+
+                mouseleave:function(){
+                
+                    $("div.mytooltip").hide();
+                },
+
+                mousemove:function(e){
+                    $("div.mytooltip").css({
+                        left:e.pageX+"px",
+                        top:e.pageY+"px"
+                    })
+                },
+
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+    <h4 class="alert alert-info"> Tooltip 링크 부분에 마우스를 올려보세요</h4>
+    <br><br>
+    <a style="font-size:25px; cursor: pointer;">
+        Tooltip Tooltip Tooltip Tooltip Tooltip Tooltip
+    </a>
+    <pre>
+        코로나19기간 천정부지로 치솟던 <b class="view" color="pink"> 제주도 렌터가 가격이 5분의 1토막</b>이 났다. 
+        <b class="view" color="yellow">코로나 방역조치가 완화</b>되자 국내 관광객들이 일본과 베트남 등
+        해외 여행 수요로 빠져나간 것이 <b class="view" color="green">직격탄이</b> 됐다.
+        제주도 렌터카 플랫폼 네이처모빌리티의 가격동향 그래프에 따르면 중형차 쏘나타 뉴라이즈 기준 
+        1일 평균 대여가격이 11만2289원(2019년7월31일)이었다. 
+        코로나가 정점이던 때에는 17만9742원(2020년8월3일)까지 치솟았다가 
+        다시 11만8172원(2021년7월30일)로 낮아졌다. 
+        하지만 지난해 코로나 재확산으로 또다시 해외 여행길이 막히자 15만9226원(2022년8월2일)으로 상승하다 
+        최근 들어서야  <b class="view" color="orange">가격이 다시 안정세로</b> 돌아오고 있는 추세다.
+
+    </pre>
+    <hr>
+    <h2>오늘 나의 식사 및 쇼핑 목록 입니다</h2>
+    <ol type="1" class="today">
+        <li photo="../image/food/1.jpg">햄에그샌드위치</li>
+        <li photo="../image/food/11.jpg">망고빙수</li>
+        <li photo="../image/shop/8.jpg">꽈베기회색스웨터</li>
+        <li photo="../image/shop/29.jpg">여름용 모자</li>
+    </ol>
+
+    <div class="mytooltip">
+        Java<br>
+        HTML5<br>
+        CSS<br>
+        mytooltip<br>
+    </div>
+
+</body>
+
+</html>

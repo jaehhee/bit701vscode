@@ -120,11 +120,14 @@
             $(document).on("click",".plist li",function(){
                 let ptext=$(this).text();
                 $("div.result b:eq(0)").text(ptext);
+                $("ul.mlist").hide();
+
             });
 
             $(document).on("click",".mlist li",function(){
                 let mtext=$(this).text();
                 $("div.result b:eq(1)").text(mtext);
+                $("ul.plist").hide();
 
             });
 
