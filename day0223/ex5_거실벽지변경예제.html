@@ -79,11 +79,37 @@
         div.wall ul.list li.active{
             border-color: palevioletred;
         }
-        
+
     </style>
 
     <script>
         $(function(){
+            $("ul.list img").click(function(){
+                // 현재 클릭한 이미지의 부모태그인 li에 active 추가
+
+                $(this).parent().addClass("active");
+
+                // 그 이전에 추가된 active 제거
+
+                $(this).parent().siblings().removeClass("active");
+
+                // 클릭한 이미지의 title 얻기
+
+                let title=$(this).attr("title");
+
+                // 얻은 title을 h1.title에 넣기
+
+                $("h1.title").text(title);
+
+
+                // 클릭한 이미지의 src 얻기
+
+                let imgSrc=$(this).attr("src");
+
+                // 위의 src를 .wall 에 background-image로 넣기
+
+                $(".wall").css("background-image",`url(${imgSrc})`);
+            });
 
         });
     </script>
